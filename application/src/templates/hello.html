@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to this test application!</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<h1>Cluster scaling testing</h1>
+
+<h2>Send metrics above 50 every 2 seconds for one minute:</h2>
+
+<a href="/sendMetrics?metric_name=queue_size&metric_value=1" class="buttons"><p>Start!</p></a>
+
+</body>
+</html>
