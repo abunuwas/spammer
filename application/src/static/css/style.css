@@ -1,0 +1,14 @@
+body {
+	font-family: sans-serif;
+	background: #eee;
+}
+
+.buttons {
+	text-decoration: none;
+}
+
+p {
+	color: red;
+	background: #FFFFFF;
+	width: 4%;
+}
