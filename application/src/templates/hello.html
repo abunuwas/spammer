@@ -8,9 +8,25 @@
 
 <h1>Cluster scaling testing</h1>
 
-<h2>Send metrics above 50 every 2 seconds for one minute:</h2>
+{% if clusters %}
+<h2>You have the following clusters:</h2>
 
-<a href="/sendMetrics?metric_name=queue_size&metric_value=1" class="buttons"><p>Start!</p></a>
+{% for cluster in clusters %}
+	<h3><a href="/describeCluster?cluster={{ cluster }}">{{ cluster }}</a></h3>
+{% endfor %}
+{% endif %}
+
+{% if details %}
+	<h3>Cluster name: {{ details['clusterName'] }}</h3>
+	<h4>Desired number of tasks: {{ details['runningTasksCount'] + details['pendingTasksCount'] }}</h4>
+	<h4>Pending tasks: {{ details['pendingTasksCount'] }}</h4>
+	<h4>Running tasks: {{ details['runningTasksCount'] }}</h4>
+	<h4>Number of instances: {{ details['registeredContainerInstancesCount'] }}</h4>
+{% endif %}
+
+<a href="/testScaleUp"><h2>Test scaleup alarm</h2></a>
+
+<a href="/testScaleUp" class="buttons"><p>Start!</p></a>
 
 </body>
 </html>
